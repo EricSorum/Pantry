@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pantry</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<button type="button" id="formAppears">New Item</button>
+<button type="button" id="sortList">Sort List</button>
+<br>
+<div id="form" class="hidden">
+
+
+  <label for="itemName">New item name: </label>
+  <input type="text" name="itemName" id="itemName" required>
+  <label for="store">Store: </label>
+  <select name="store" id="store">
+      <option value="-------"></option>
+      <optgroup label="Local">
+        <option value="Everett's">Everett's</option>
+        <option value="Sam's">Sam's</option>
+        <option value="Oxendale">Oxendale</option>
+        <option value="United Noodle">United Noodle</option>
+        <option value="Coastal Seafoods">Coastal Seafoods</option>
+      </optgroup>
+      <optgroup label="Big Box">
+        <option value="Trader Joe's">Trader Joe's</option>
+        <option value="Cub Foods">Cub Foods</option>
+        <option value="Costco">Costco</option>
+        <option value="Target">Target</option>
+        <option value="Lund's">Lund's & Byerly's</option>
+      </optgroup>
+    </select>
+  <label for="section">Section where it is located in the store: </label>
+  <select name="section" value="section" id="section">
+    <option value="nosection"></option>
+    <option value="produce">Produce</option>
+    <option value="dry">Dry</option>
+    <option value="refrigerated">Refrigerated</option>
+    <option value="frozen">Frozen</option>
+    <option value="counter">Meat Counter</option>
+  </select>
+  <button id="submit">Submit</button>  
+
+</div>
+<br>
+
+<div id="grid">
+</div>
+<!--
+
+Need checkboxes to sort through...
+The form should have a checkbox for each type of value and user can select more than
+one...
+so user can bring up all checked boxes at one grocery store and sort by section
+actually the store should be a drop-down menu...
+
+
+        Pantry
+Grocery list focusing on essentials
+Do this NOW instead of library.
+Use grocery list i have in google docs
+Each item has options for importance and where to buy it
+Then user can sort list by those attributes
+Expand it to include recipes…
+
+figure out each step and how to do it.
+
+Need a button that removes an item.
+
+Need a clear button that clears all checked boxes.
+
+Need a list of checkboxes for each grocery item.
+Learn how to put tags on a list with Emmet.
+make the list in two columns
+Don't make headers to start with, just one list.
+So I suppose each item will be in a div, and i should use grid to organize it?
+
+Need a form to enter in new grocery items.
+
+Need buttons on each item to show:
+        Where to buy it - drop-down menu?
+        Level of importance - number input?
+
+
+Need buttons that will sort the list according to where to buy, and priority/importance
+
+Create a separate page that will organize recipes according to ingredients you have.
+Need a grid of recipes
+
+
+-->
+
+    
+    
+    
+    <script src="js.js"></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+.itemDiv {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 15px;
+}
+
+#grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+
+.hidden {
+    display: none;
+}
