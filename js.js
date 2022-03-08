@@ -1,14 +1,39 @@
+// Next I need to create some pre-made grocery items
+// Also, clean up the DOM manipulation stuff -
+// put DOM stuff in separate functions
 
-// We begin with an empty array for our groceries.
-let groceries = [];
-
-// Here is the constructor, used to create new items to add to groceries
+// Here is the constructor, used to create new grocery items.
 function Item(itemName, store, section) {
     this.itemName = itemName
     this.store = store
     this.section = section
     this.checked = false
 }
+
+// The groceries array is provided with a default set of items.
+let groceries = [
+    new Item("White Rice", "Everett's", "Dry"),
+    new Item("Bread", "Oxendale", "Dry"),
+    new Item("All-purpose Flour", "Everett's", "Dry"),
+    new Item("Pasta", "Costco", "Dry"),
+    new Item("Black Beans", "Costco", "Dry"),
+    new Item("White Beans", "Cub Foods", "Dry"),
+    new Item("Garbanzo Beans", "Costco", "Dry"),
+    new Item("Diced Tomatoes", "Costco", "Dry"),
+    new Item("Olive Oil", "Costco", "Dry"),
+    new Item("Garlic", "Everett's", "Produce"),
+    new Item("Onions", "Everett's", "Produce"),
+    new Item("Carrot's", "Everett's", "Produce"),
+    new Item("Bell Peppers", "Everett's", "Produce"),
+    new Item("Broccoli", "Everett's", "Produce"),
+    new Item("Soy Sauce", "United Noodle", "Dry"),
+    new Item("Dijon Mustard", "Everett's", "Dry"),
+    new Item("Greek Yogurt", "Oxendale", "Refrigerated"),
+    new Item("Cheese", "Oxendale", "Refrigerated"),
+    new Item("Bananas", "Everett's", "Produce"),
+    new Item("Brussel Sprouts", "Everett's", "Produce"),
+    new Item("Lemons", "Everett's", "Produce"),
+]
 
 // Below are event listeners that cause the form to appear, where the user
 // enters information for new groceries.
@@ -19,6 +44,7 @@ const formAppears = document.getElementById("formAppears")
 const toggleForm = function () {
     const formId = document.querySelector("#form")
     formId.classList.toggle("hidden")
+    formId.classList.toggle("itemDiv")
 }
 formAppears.addEventListener("click", toggleForm)
 const submit = document.getElementById("submit")
@@ -38,7 +64,9 @@ function addItem() {
 // The populate() function populates the grid div with the grocery items
 // from the groceries array, complete with a list of all its information
 // It also adds further functionality, allowing users to rank each item 
-// according to priority, delete an item, and check an item.
+// according to priority, delete an item, and checkmark an item.
+
+populate()
 
 function populate() {
     document.querySelector("#grid").innerHTML=""
@@ -60,7 +88,7 @@ function populate() {
         itemDiv.appendChild(checkbox)
         const p = document.createElement("p")
         itemDiv.appendChild(p)
-        p.innerText = `${groceries[i].itemName} | ${itemDiv.dataset.index} Store: ${groceries[i].store} | Section: ${groceries[i].section} | Priority: `
+        p.innerText = `${groceries[i].itemName} | Store: ${groceries[i].store} | Section: ${groceries[i].section} | Priority: `
         const priority = document.createElement("select")
         itemDiv.appendChild(priority)
         const low = document.createElement("option")
@@ -97,7 +125,7 @@ function checkFunction(i) {
     populate()
 }
 
-// This deletes an item and resorts the array.
+// This deletes an item and repopulates the array.
 function deleteItem(i) {
     groceries.splice(i, 1)
     populate()
