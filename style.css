@@ -41,8 +41,8 @@ input[type="checkbox"]::before {
     
 }
 
-.itemDiv:hover, #formAppears:hover, #sortList:hover {
-    scale: 105%
+#checkbox:hover, button:hover, select:hover, #formAppears:hover, #sortList:hover {
+    scale: 110%
 }
 
 .hidden {

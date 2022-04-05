@@ -1,44 +1,18 @@
-// Next I need to create some pre-made grocery items
-// Also, clean up the DOM manipulation stuff -
-// put DOM stuff in separate functions
 
-// Here is the constructor, used to create new grocery items.
-function Item(itemName, store, section) {
-    this.itemName = itemName
-    this.store = store
-    this.section = section
-    this.checked = false
+// This factory function creates new grocery items.
+function createItem(itemName, store, section) {
+    return {
+        itemName: itemName,
+        store: store,
+        section: section,
+    }
 }
-
-// The groceries array is provided with a default set of items.
-let groceries = [
-    new Item("White Rice", "Everett's", "Dry"),
-    new Item("Bread", "Oxendale", "Dry"),
-    new Item("All-purpose Flour", "Everett's", "Dry"),
-    new Item("Pasta", "Costco", "Dry"),
-    new Item("Black Beans", "Costco", "Dry"),
-    new Item("White Beans", "Cub Foods", "Dry"),
-    new Item("Garbanzo Beans", "Costco", "Dry"),
-    new Item("Diced Tomatoes", "Costco", "Dry"),
-    new Item("Olive Oil", "Costco", "Dry"),
-    new Item("Garlic", "Everett's", "Produce"),
-    new Item("Onions", "Everett's", "Produce"),
-    new Item("Carrot's", "Everett's", "Produce"),
-    new Item("Bell Peppers", "Everett's", "Produce"),
-    new Item("Broccoli", "Everett's", "Produce"),
-    new Item("Soy Sauce", "United Noodle", "Dry"),
-    new Item("Dijon Mustard", "Everett's", "Dry"),
-    new Item("Greek Yogurt", "Oxendale", "Refrigerated"),
-    new Item("Cheese", "Oxendale", "Refrigerated"),
-    new Item("Bananas", "Everett's", "Produce"),
-    new Item("Brussel Sprouts", "Everett's", "Produce"),
-    new Item("Lemons", "Everett's", "Produce"),
-]
 
 // Below are event listeners that cause the form to appear, where the user
 // enters information for new groceries.
+
 const sortList = document.getElementById("sortList")
-sortList.addEventListener("click", populate)
+sortList.addEventListener("click", reset)
 const grid = document.querySelector("#grid")
 const formAppears = document.getElementById("formAppears")
 const toggleForm = function () {
@@ -50,13 +24,48 @@ formAppears.addEventListener("click", toggleForm)
 const submit = document.getElementById("submit")
 submit.addEventListener("click", addItem)
 
+// This is the starting list of groceries.
+
+let groceries = [];
+
+function reset() {
+    groceries = [
+        createItem("White Rice", "Everett's", "Dry"),
+        createItem("Bread", "Oxendale", "Dry"),
+        createItem("All-purpose Flour", "Everett's", "Dry"),
+        createItem("Pasta", "Costco", "Dry"),
+        createItem("Black Beans", "Costco", "Dry"),
+        createItem("White Beans", "Cub Foods", "Dry"),
+        createItem("Garbanzo Beans", "Costco", "Dry"),
+        createItem("Diced Tomatoes", "Costco", "Dry"),
+        createItem("Olive Oil", "Costco", "Dry"),
+        createItem("Garlic", "Everett's", "Produce"),
+        createItem("Onions", "Everett's", "Produce"),
+        createItem("Carrot's", "Everett's", "Produce"),
+        createItem("Bell Peppers", "Everett's", "Produce"),
+        createItem("Broccoli", "Everett's", "Produce"),
+        createItem("Soy Sauce", "United Noodle", "Dry"),
+        createItem("Dijon Mustard", "Everett's", "Dry"),
+        createItem("Greek Yogurt", "Oxendale", "Refrigerated"),
+        createItem("Cheese", "Oxendale", "Refrigerated"),
+        createItem("Bananas", "Everett's", "Produce"),
+        createItem("Brussel Sprouts", "Everett's", "Produce"),
+        createItem("Lemons", "Everett's", "Produce"),
+    ];
+    populate();
+};
+reset();
+
+
+
+
 // This function takes information entered by the user on the form and stores
 // it in a new object within the groceries array.
 function addItem() {
     const itemName = document.querySelector("#itemName")
     const store = document.querySelector("#store")
     const section = document.querySelector("#section")
-    const item = new Item(itemName.value, store.value, section.value)
+    const item = createItem(itemName.value, store.value, section.value)
     groceries.unshift(item)
     populate()
 }
@@ -66,7 +75,6 @@ function addItem() {
 // It also adds further functionality, allowing users to rank each item 
 // according to priority, delete an item, and checkmark an item.
 
-populate()
 
 function populate() {
     document.querySelector("#grid").innerHTML=""
