@@ -52,7 +52,7 @@ input[type="checkbox"]::before {
 .itemDiv {
     background-color: rgb(248, 217, 159, 65%);
     display: flex;
-    justify-content: left;
+    justify-content: space-around;
     align-items: center;
     border: 3px rgb(255, 166, 0);
     box-shadow: 2px 2px 5px black;
