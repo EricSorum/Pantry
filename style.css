@@ -8,6 +8,13 @@ html {
     background-attachment: fixed;
 }
 
+h1 {
+    color: rgb(255, 166, 0);
+    text-shadow: black 2px 2px 2px;
+    font-size: 6rem;
+    text-decoration: none;
+}
+
 body {
     display: flex;
     flex-direction: column;
@@ -65,9 +72,6 @@ input[type="checkbox"]::before {
     grid-template-columns: 1fr 1fr;
     gap: 20px;
 }
-
-
-
 
 #checkbox {
     size: 15px;
