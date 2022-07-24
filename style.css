@@ -8,11 +8,25 @@ html {
     background-attachment: fixed;
 }
 
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: -20px;
+}
+
 h1 {
     color: rgb(255, 166, 0);
     text-shadow: black 2px 2px 2px;
     font-size: 6rem;
     text-decoration: none;
+}
+
+h3 {
+    color: rgb(255, 166, 0);
+    text-shadow: black 2px 2px 2px;
+    font-size: 2rem;
 }
 
 body {

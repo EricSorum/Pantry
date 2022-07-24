@@ -7,53 +7,54 @@
     <title>Pantry</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
 <header>
   <h1>Pantry</h1>
+  <h3>Customizable grocery list</h3>
 </header>
-<button type="button" id="formAppears">New Item</button>
-<button type="button" id="sortList">Reset List</button>
-<br>
-<div id="form" class="hidden">
+<body>
+  <button type="button" id="formAppears">New Item</button>
+  <button type="button" id="sortList">Reset List</button>
+  <br>
+  <div id="form" class="hidden">
 
 
-  <label for="itemName">New item name: </label>
-  <input type="text" name="itemName" id="itemName" required>
-  <label for="store">Store: </label>
-  <select name="store" id="store">
-      <option value="-------"></option>
-      <optgroup label="Local">
-        <option value="Everett's">Everett's</option>
-        <option value="Sam's">Sam's</option>
-        <option value="Oxendale">Oxendale</option>
-        <option value="United Noodle">United Noodle</option>
-        <option value="Coastal Seafoods">Coastal Seafoods</option>
-      </optgroup>
-      <optgroup label="Big Box">
-        <option value="Trader Joe's">Trader Joe's</option>
-        <option value="Cub Foods">Cub Foods</option>
-        <option value="Costco">Costco</option>
-        <option value="Target">Target</option>
-        <option value="Lund's">Lund's & Byerly's</option>
-      </optgroup>
+    <label for="itemName">New item name: </label>
+    <input type="text" name="itemName" id="itemName" required>
+    <label for="store">Store: </label>
+    <select name="store" id="store">
+        <option value="-------"></option>
+        <optgroup label="Local">
+          <option value="Everett's">Everett's</option>
+          <option value="Sam's">Sam's</option>
+          <option value="Oxendale">Oxendale</option>
+          <option value="United Noodle">United Noodle</option>
+          <option value="Coastal Seafoods">Coastal Seafoods</option>
+        </optgroup>
+        <optgroup label="Big Box">
+          <option value="Trader Joe's">Trader Joe's</option>
+          <option value="Cub Foods">Cub Foods</option>
+          <option value="Costco">Costco</option>
+          <option value="Target">Target</option>
+          <option value="Lund's">Lund's & Byerly's</option>
+        </optgroup>
+      </select>
+    <label for="section">Section where it is located in the store: </label>
+    <select name="section" value="section" id="section">
+      <option value="nosection"></option>
+      <option value="produce">Produce</option>
+      <option value="dry">Dry</option>
+      <option value="refrigerated">Refrigerated</option>
+      <option value="frozen">Frozen</option>
+      <option value="counter">Meat Counter</option>
     </select>
-  <label for="section">Section where it is located in the store: </label>
-  <select name="section" value="section" id="section">
-    <option value="nosection"></option>
-    <option value="produce">Produce</option>
-    <option value="dry">Dry</option>
-    <option value="refrigerated">Refrigerated</option>
-    <option value="frozen">Frozen</option>
-    <option value="counter">Meat Counter</option>
-  </select>
-  <button id="submit">Submit</button>  
+    <button id="submit">Submit</button>  
 
-</div>
-<br>
+  </div>
+  <br>
 
-<div id="grid">
-</div>
-    <script src="script.js"></script>
+  <div id="grid">
+  </div>
+      <script src="script.js"></script>
 </body>
 <footer>
   <span>
