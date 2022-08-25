@@ -1,5 +1,8 @@
-
-// This factory function creates new grocery items.
+/*
+This factory function creates objects that stores the information for 
+each grocery item.  Both the default grocery items and custom items
+are created using this function.
+*/
 function createItem(itemName, store, section) {
     return {
         itemName: itemName,
@@ -8,12 +11,22 @@ function createItem(itemName, store, section) {
     }
 }
 
-// Below are event listeners that cause the form to appear, where the user
-// enters information for new groceries.
-
+// sortList is a button that resets the grocery list to its default items.
 const sortList = document.getElementById("sortList")
 sortList.addEventListener("click", reset)
+
+// grid is the main container where the grocery list is rendered.
 const grid = document.querySelector("#grid")
+
+/*
+formAppears is a button that causes the form to appear, where the user can
+create customized grocery items.
+
+The form is hard-coded into the HTML, and appears by toggling the "hidden" CSS class,
+which sets it to display: none;
+*/
+
+
 const formAppears = document.getElementById("formAppears")
 const toggleForm = function () {
     const formId = document.querySelector("#form")
@@ -24,11 +37,10 @@ formAppears.addEventListener("click", toggleForm)
 const submit = document.getElementById("submit")
 submit.addEventListener("click", addItem)
 
-// This is the starting list of groceries.
-
 let groceries = [];
 
 function reset() {
+    // Below are the default grocery items that appear in the list.
     groceries = [
         createItem("White Rice", "Everett's", "Dry"),
         createItem("Bread", "Oxendale", "Dry"),
@@ -56,11 +68,10 @@ function reset() {
 };
 reset();
 
-
-
-
-// This function takes information entered by the user on the form and stores
-// it in a new object within the groceries array.
+/*
+This function takes information entered by the user on the form and stores
+it in a new object within the groceries array.
+*/
 function addItem() {
     const itemName = document.querySelector("#itemName")
     const store = document.querySelector("#store")
@@ -70,12 +81,12 @@ function addItem() {
     populate()
 }
 
-// The populate() function populates the grid div with the grocery items
-// from the groceries array, complete with a list of all its information
-// It also adds further functionality, allowing users to rank each item 
-// according to priority, delete an item, and checkmark an item.
-
-
+/*
+The populate() function populates the grid div with the grocery items
+from the groceries array, complete with a list of all its information
+It also adds further functionality, allowing users to rank each item 
+according to priority, delete an item, and checkmark an item.
+*/
 function populate() {
     document.querySelector("#grid").innerHTML=""
     for (let i = 0; i < groceries.length; i++) {
@@ -122,9 +133,7 @@ function populate() {
     }
 }
 
-// Below are two functions that manipulate grocery items.
-
-// By checking a box next to an item, it sends the item to the front of 
+// By checking a box next to an item, this sends the item to the front of 
 // the list.
 function checkFunction(i) {
     groceries[i].checked = true
